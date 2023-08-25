@@ -58,21 +58,21 @@
                 ;
         };
 
-        macro_st : start_line {
+        macro_st: start_line {
             bindings
                 = <&macro_tap &kp S>
                 , <&macro_tap &kp T>
                 ;
         };
 
-        macro_end : end_line {
+        macro_end: end_line {
             bindings
                 = <&macro_tap &kp E>
                 , <&macro_tap &kp L>
                 ;
         };
 
-        macro_close : close_line {
+        macro_close: close_line {
             bindings
                 = <&macro_tap &kp C>
                 , <&macro_tap &kp L>
