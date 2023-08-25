@@ -1,0 +1,80 @@
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DEFAULT 0
+#define SYMBOLS 1
+#define NUMBERS 2
+#define BT 3
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                &to SYMBOLS &kp A     &kp F         &kp G          &kp B
+                &kp LEFT    &kp RIGHT &macro_st     &macro_end     &macro_close
+                &kp ENTER   &kp K     &kp SPACE     &kp LC(C)      &lt BT LC(V)
+            >;
+        };
+
+        symbols_layer {
+            bindings = <
+                &to NUMBERS &trans    &trans        &trans         &trans
+                &trans      &trans    &trans        &trans         &trans
+                &trans      &trans    &trans        &trans         &trans
+            >;
+        };
+
+        numbers_layer {
+            bindings = <
+                &to DEFAULT &trans    &trans        &trans         &trans
+                &kp 6       &kp 7     &kp 8         &kp 9          &kp 0
+                &kp 1       &kp 2     &kp 3         &kp 4          &kp 5
+            >;
+        };
+
+        bt_layer {
+            bindings = <
+                &none        &none        &none        &none        &none
+                &BT_CLR      &none        &none        &none        &none
+                &kp BT_SEL 1 &kp BT_SEL 2 &kp BT_SEL 3 &kp BT_SEL 4 &kp 5
+            >;
+        };
+
+    };
+
+    macros {
+        zed_em_kay: zed_em_kay {
+            label = "ZM_zed_em_kay";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp Z &kp M &kp K>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        macro_st : start_line {
+            bindings
+                = <&macro_tap &kp S>
+                , <&macro_tap &kp T>
+        };
+
+        macro_end : end_line {
+            bindings
+                = <&macro_tap &kp E>
+                , <&macro_tap &kp L>
+        };
+
+        macro_close : close_line {
+            bindings
+                = <&macro_tap &kp C>
+                , <&macro_tap &kp L>
+                , <&macro_tap &kp O>
+        };
+    };
+};

@@ -1,0 +1,2 @@
+config SHIELD_test_board
+    def_bool $(shields_list_contains, test_board)
