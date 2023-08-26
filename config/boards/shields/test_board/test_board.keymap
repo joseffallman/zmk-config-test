@@ -58,6 +58,8 @@
         };
 
         macro_st: start_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp S>
                 , <&macro_tap &kp T>
@@ -65,6 +67,8 @@
         };
 
         macro_end: end_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp E>
                 , <&macro_tap &kp L>
@@ -72,6 +76,8 @@
         };
 
         macro_close: close_line {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp C>
                 , <&macro_tap &kp L>
