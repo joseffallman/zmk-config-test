@@ -48,7 +48,6 @@
 
     macros {
         zed_em_kay: zed_em_kay {
-            label = "ZM_zed_em_kay";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
