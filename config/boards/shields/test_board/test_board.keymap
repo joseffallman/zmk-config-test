@@ -48,6 +48,7 @@
 
     macros {
         zed_em_kay: zed_em_kay {
+            label = "ZM_zed_em_kay";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -58,6 +59,7 @@
         };
 
         macro_st: start_line {
+            label = "start_line";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -67,6 +69,7 @@
         };
 
         macro_end: end_line {
+            label = "end_line";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -76,6 +79,7 @@
         };
 
         macro_close: close_line {
+            label = "close_line";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
