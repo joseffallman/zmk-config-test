@@ -23,9 +23,9 @@
         symbols_layer {
             // &lt BT_KEYS LC(V)
             bindings = <
-                &to 2       &trans    &trans        &kp LC(C)      &kp LC(V)
+                &to NUM_LAY &trans    &trans        &kp LC(C)      &kp LC(V)
                 &kp CAPS    &kp HOME  &kp UP        &kp END        &kp DEL
-                &kp ENTER   &kp LEFT  &kp DOWN      &kp RIGHT      &kp BSPC
+                &kp ENTER   &kp LEFT  &kp DOWN      &kp RIGHT      &lt BT_KEYS BSPC
             >;
         };
 
