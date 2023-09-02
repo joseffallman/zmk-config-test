@@ -5,8 +5,8 @@
 
 #define DEFAULT 0
 #define SYMBOLS 1
-#define NUMBERS 2
-#define BT 3
+#define NUM_LAY 2
+#define BT_KEYS 3
 
 / {
     keymap {
@@ -14,23 +14,24 @@
 
         default_layer {
             bindings = <
-                &to SYMBOLS &kp A     &kp F         &kp G          &kp B
+                &to SYMBOLS &kp A     &macro_el_B   &macro_SKV     &macro_el_SKP
                 &kp LEFT    &kp RIGHT &macro_st     &macro_end     &macro_close
-                &kp ENTER   &kp K     &kp SPACE     &kp LC(C)      &lt BT LC(V)
+                &kp ENTER   &kp K     &kp SPACE     &kp L          &kp R
             >;
         };
 
         symbols_layer {
+            // &lt BT_KEYS LC(V)
             bindings = <
-                &to NUMBERS &trans    &trans        &trans         &trans
-                &trans      &HOME     &UP           &END           &CAPS
-                &ENTER      &LEFT     &DOWN         &RIGHT         &trans
+                &to 2       &trans    &trans        &kp LC(C)      &kp LC(V)
+                &kp CAPS    &kp HOME  &kp UP        &kp END        &kp DEL
+                &kp ENTER   &kp LEFT  &kp DOWN      &kp RIGHT      &kp BSPC
             >;
         };
 
         numbers_layer {
             bindings = <
-                &to DEFAULT  &trans   &trans        &trans         &trans
+                &to DEFAULT  &kp D    &trans        &trans         &trans
                 &kp N6       &kp N7   &kp N8        &kp N9         &kp N0
                 &kp N1       &kp N2   &kp N3        &kp N4         &kp N5
             >;
@@ -45,7 +46,7 @@
         };
     };
 
-    a
+
     macros {
         zed_em_kay: zed_em_kay {
             label = "ZM_zed_em_kay";
@@ -104,6 +105,31 @@
                 , <&macro_tap &kp S>
                 , <&macro_tap &kp K>
                 , <&macro_tap &kp P>
+                ;
+        };
+
+        macro_el_B: el_B {
+            label = "el_B";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp SPACE>
+                , <&macro_tap &kp E>
+                , <&macro_tap &kp L>
+                , <&macro_tap &kp UNDER>
+                , <&macro_tap &kp B>
+                ;
+        };
+
+        macro_SKV: skv {
+            label = "skv";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp SPACE>
+                , <&macro_tap &kp S>
+                , <&macro_tap &kp K>
+                , <&macro_tap &kp V>
                 ;
         };
     };
