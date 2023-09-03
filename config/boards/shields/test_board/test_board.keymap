@@ -2,6 +2,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include "keys_sv.h"
 
 #define DEFAULT 0
 #define SYMBOLS 1
@@ -14,16 +15,16 @@
 
         default_layer {
             bindings = <
-                &to SYMBOLS &kp A     &macro_el_B   &macro_SKV     &macro_el_SKP
-                &kp LEFT    &kp RIGHT &macro_st     &macro_end     &macro_close
-                &kp ENTER   &kp K     &kp SPACE     &kp L          &kp R
+                &to SYMBOLS &macro_A      &macro_el_B   &macro_SKV     &macro_el_SKP
+                &kp LEFT    &kp RIGHT     &macro_st     &macro_end     &macro_close
+                &kp ENTER   &kp LS(K)     &kp SPACE     &kp LS(L)      &kp LS(R)
             >;
         };
 
         symbols_layer {
             // &lt BT_KEYS LC(V)
             bindings = <
-                &to NUM_LAY &trans    &trans        &kp LC(C)      &kp LC(V)
+                &to NUM_LAY &trans    &macro_el_STN &kp LC(C)      &kp LC(V)
                 &kp CAPS    &kp HOME  &kp UP        &kp END        &kp DEL
                 &kp ENTER   &kp LEFT  &kp DOWN      &kp RIGHT      &lt BT_KEYS BSPC
             >;
@@ -31,9 +32,9 @@
 
         numbers_layer {
             bindings = <
-                &to DEFAULT  &kp D    &trans        &trans         &trans
-                &kp N6       &kp N7   &kp N8        &kp N9         &kp N0
-                &kp N1       &kp N2   &kp N3        &kp N4         &kp N5
+                &to DEFAULT  &kp LS(D) &trans        &trans         &trans
+                &kp N6       &kp N7    &kp N8        &kp N9         &kp N0
+                &kp N1       &kp N2    &kp N3        &kp N4         &kp N5
             >;
         };
 
@@ -65,8 +66,10 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp SPACE>
+                , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp S>
                 , <&macro_tap &kp T>
+                , <&macro_release &kp LSHFT>
                 ;
         };
 
@@ -76,8 +79,10 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp SPACE>
+                , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp E>
                 , <&macro_tap &kp L>
+                , <&macro_release &kp LSHFT>
                 ;
         };
 
@@ -87,9 +92,11 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp SPACE>
+                , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp C>
                 , <&macro_tap &kp L>
                 , <&macro_tap &kp O>
+                , <&macro_release &kp LSHFT>
                 ;
         };
 
@@ -99,12 +106,35 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp SPACE>
+                , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp E>
                 , <&macro_tap &kp L>
-                , <&macro_tap &kp UNDER>
+                , <&macro_release &kp LSHFT>
+                , <&macro_tap &kp SV_UNDER>
+                , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp S>
                 , <&macro_tap &kp K>
                 , <&macro_tap &kp P>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        macro_el_STN: el_STN {
+            label = "el_STN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp SPACE>
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap &kp E>
+                , <&macro_tap &kp L>
+                , <&macro_release &kp LSHFT>
+                , <&macro_tap &kp SV_UNDER>
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap &kp S>
+                , <&macro_tap &kp T>
+                , <&macro_tap &kp N>
+                , <&macro_release &kp LSHFT>
                 ;
         };
 
@@ -114,10 +144,14 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp SPACE>
+                , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp E>
                 , <&macro_tap &kp L>
-                , <&macro_tap &kp UNDER>
+                , <&macro_release &kp LSHFT>
+                , <&macro_tap &kp SV_UNDER>
+                , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp B>
+                , <&macro_release &kp LSHFT>
                 ;
         };
 
@@ -127,9 +161,23 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_tap &kp SPACE>
+                , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp S>
                 , <&macro_tap &kp K>
                 , <&macro_tap &kp V>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+
+        macro_A: space_A {
+            label = "space_A";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp SPACE>
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap &kp A>
+                , <&macro_release &kp LSHFT>
                 ;
         };
     };
